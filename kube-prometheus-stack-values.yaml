@@ -64,6 +64,7 @@ alertmanager:
     storage:
       volumeClaimTemplate:
         spec:
+          storageClassName: longhorn # añadimos esta linea para que lo gestione longhorn
           accessModes: ["ReadWriteOnce"]
           resources:
             requests:
@@ -87,6 +88,7 @@ prometheus:
     storageSpec:
       volumeClaimTemplate:
         spec:
+          storageClassName: longhorn # añadimos esta linea para que pueda gestionar los volumenes longhorn
           accessModes: ["ReadWriteOnce"]
           resources:
             requests:
@@ -145,7 +147,7 @@ grafana:
 #      memory: 16Mi
 #  priorityClassName: high-priority
 
-kube-state-metrics:
+#kube-state-metrics:
 #  resources:
 #    limits:
 #      cpu: 1
